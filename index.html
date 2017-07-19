@@ -9,11 +9,13 @@
 </head>
 <body>
 	<div id="app">
-    <category-li></category-li>
+    <input v-model='myName' >
+    <category-li v-bind:categorias='categories' v-bind:name='myName'></category-li>
 	</div>
   <template id='categoryLi'>
     <ul>
-      <li v-for='cat in categories'
+      {{name}}
+      <li v-for='cat in categorias'
           v-on:click='toggleSelected(cat)'>
         {{ cat.name }}
         <span v-if='cat.selected'>selected</span>
