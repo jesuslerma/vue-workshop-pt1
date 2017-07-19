@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello world!</title>
+  <!-- include Vue.js from a CDN -->
+  <script src="https://unpkg.com/vue"></script>
+  
+</head>
+<body>
+	<div id="app">
+    <category-li></category-li>
+	</div>
+  <template id='categoryLi'>
+    <ul>
+      <li v-for='cat in categories'
+          v-on:click='toggleSelected(cat)'>
+        {{ cat.name }}
+        <span v-if='cat.selected'>selected</span>
+        <span v-else>not selected</span>
+        <love></love>
+      </li>  
+    </ul>
+  </template>
+  <script src='app.js'></script>
+</body>  
