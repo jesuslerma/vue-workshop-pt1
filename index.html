@@ -12,17 +12,32 @@
     <input v-model='newCategory.name' 
       v-on:keyup.enter='saveNewCategory'>
     
-    <category-li 
+    <category-li
       v-on:toggleselected='onToggle'
       v-bind:categorias='categories'>
-        <h1>{{header}}</h1>
-        <second>Hola</second>
       </category-li>
+    <category-table
+      v-on:toggleselected='onToggle'
+      v-bind:categorias='categories'>
+      </category-table>
+
 	</div>
+  <template id='categoryTable'>
+    <table>
+      <thead>
+        <th>Name</th>
+        <th>Selected</th>
+      </thead>
+      <tbody>
+        <tr v-for='cat in categorias'>
+          <td>{{cat.name}}</td>
+          <td>{{cat.selected}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </template>
   <template id='categoryLi'>
     <ul>
-      <slot></slot>
-      <slot name='second'></slot>
       <li v-for='cat in categorias'
           v-on:click='toggleSelected(cat)'>
         {{ cat.name }}

@@ -4,8 +4,8 @@ var categories = [
     {name:'audifonos', selected: false},
     {name:'electronicas', selected: true}
   ]
-  Vue.component('categoryLi', {
-    template: '#categoryLi',
+  
+  categoryMixin = {
     props: ['categorias'],
     methods: {
       toggleSelected: function (category) {
@@ -13,6 +13,16 @@ var categories = [
         this.$emit('toggleselected', category)
       }
     }
+  }
+
+  Vue.component('categoryLi', {
+    template: '#categoryLi',
+    mixins: [categoryMixin]
+  })
+
+  Vue.component('categoryTable', {
+    template: '#categoryTable',
+    mixins: [categoryMixin]
   })
 
   new Vue({
