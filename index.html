@@ -14,10 +14,15 @@
     
     <category-li 
       v-on:toggleselected='onToggle'
-      v-bind:categorias='categories'></category-li>
+      v-bind:categorias='categories'>
+        <h1>{{header}}</h1>
+        <second>Hola</second>
+      </category-li>
 	</div>
   <template id='categoryLi'>
     <ul>
+      <slot></slot>
+      <slot name='second'></slot>
       <li v-for='cat in categorias'
           v-on:click='toggleSelected(cat)'>
         {{ cat.name }}

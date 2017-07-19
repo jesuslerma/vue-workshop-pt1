@@ -6,7 +6,7 @@ var categories = [
   ]
   Vue.component('categoryLi', {
     template: '#categoryLi',
-    props: ['categorias', 'name'],
+    props: ['categorias'],
     methods: {
       toggleSelected: function (category) {
         category.selected = !category.selected
@@ -22,7 +22,8 @@ var categories = [
       newCategory: {
         name: '',
         selected: false
-      }
+      },
+      header: 'Un Encabezado'
     },
     methods: {
       onToggle: function (category) {
@@ -30,6 +31,7 @@ var categories = [
       },
       saveNewCategory: function () {
         this.categories.push(this.newCategory)
+
         this.newCategory = {
           name: '',
           selected: false
