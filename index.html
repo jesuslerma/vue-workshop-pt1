@@ -9,18 +9,18 @@
 </head>
 <body>
 	<div id="app">
-    <input v-model='myName' >
-    <category-li v-bind:categorias='categories' v-bind:name='myName'></category-li>
+    <input v-model='newCategory.name' 
+      v-on:keyup.enter='saveNewCategory'>
+    
+    <category-li v-bind:categorias='categories'></category-li>
 	</div>
   <template id='categoryLi'>
     <ul>
-      {{name}}
       <li v-for='cat in categorias'
           v-on:click='toggleSelected(cat)'>
         {{ cat.name }}
         <span v-if='cat.selected'>selected</span>
         <span v-else>not selected</span>
-        <love></love>
       </li>  
     </ul>
   </template>

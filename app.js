@@ -1,4 +1,4 @@
-https://github.com/jesuslerma/vue-workshop-pt1
+// https://github.com/jesuslerma/vue-workshop-pt1
 var categories = [
     {name:'laptops', selected: false},
     {name:'audifonos', selected: false},
@@ -18,9 +18,14 @@ var categories = [
     el: '#app',
     data: {
       categories: categories,
-      myName: 'Bely'
+      newCategory: {
+        name: '',
+        selected: false
+      }
     },
     methods: {
-      
+      saveNewCategory: function () {
+        this.categories.push(this.newCategory)
+      }
     }
   })
