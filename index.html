@@ -12,7 +12,9 @@
     <input v-model='newCategory.name' 
       v-on:keyup.enter='saveNewCategory'>
     
-    <category-li v-bind:categorias='categories'></category-li>
+    <category-li 
+      v-on:toggleselected='onToggle'
+      v-bind:categorias='categories'></category-li>
 	</div>
   <template id='categoryLi'>
     <ul>

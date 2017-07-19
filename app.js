@@ -10,6 +10,7 @@ var categories = [
     methods: {
       toggleSelected: function (category) {
         category.selected = !category.selected
+        this.$emit('toggleselected', category)
       }
     }
   })
@@ -24,8 +25,15 @@ var categories = [
       }
     },
     methods: {
+      onToggle: function (category) {
+        alert(category.name)
+      },
       saveNewCategory: function () {
         this.categories.push(this.newCategory)
+        this.newCategory = {
+          name: '',
+          selected: false
+        }
       }
     }
   })
