@@ -11,15 +11,13 @@
 	<div id="app">
     <input v-model='newCategory.name' 
       v-on:keyup.enter='saveNewCategory'>
+    <input type="checkbox" v-on:click='componentName="categoryLi"'>
+    <component
+      v-bind:is='componentName'
+      v-on:toggleselected='onToggle'
+      v-bind:categorias='categories'>
+      </component>
     
-    <category-li
-      v-on:toggleselected='onToggle'
-      v-bind:categorias='categories'>
-      </category-li>
-    <category-table
-      v-on:toggleselected='onToggle'
-      v-bind:categorias='categories'>
-      </category-table>
 
 	</div>
   <template id='categoryTable'>

@@ -33,7 +33,8 @@ var categories = [
         name: '',
         selected: false
       },
-      header: 'Un Encabezado'
+      header: 'Un Encabezado',
+      componentName: 'categoryTable'
     },
     methods: {
       onToggle: function (category) {
